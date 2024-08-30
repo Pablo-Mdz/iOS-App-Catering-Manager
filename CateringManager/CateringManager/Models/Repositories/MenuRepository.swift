@@ -10,7 +10,9 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MenuRepository: ObservableObject {
+    // change simulator
     private let db = Firestore.firestore() // swiftlint:disable:this identifier_name
+    
 
     func addMenu(_ menu: Menu) throws {
         try db.collection("menus").document(menu.id ?? UUID().uuidString).setData(from: menu)
