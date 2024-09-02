@@ -39,6 +39,7 @@ struct ShoppingListView: View {
             .padding()
         }
         .padding()
+        .background(CostumColors.primaryColor.opacity(0.1))
     }
 
     private var dateFormatter: DateFormatter {
