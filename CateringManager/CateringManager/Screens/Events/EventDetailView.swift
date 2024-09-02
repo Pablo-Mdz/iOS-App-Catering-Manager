@@ -109,9 +109,9 @@ struct EventDetailView: View {
                                 .font(.headline)
                             Text(dish.description)
                                 .font(.subheadline)
-                            Text("Servings: \(dish.servings)")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+//                            Text("Servings: \(dish.servings)")
+//                                .font(.subheadline)
+//                                .foregroundColor(.gray)
                             VStack(alignment: .leading) {
                                 ForEach(calculateIngredients(for: dish)) { ingredient in
                                     HStack {

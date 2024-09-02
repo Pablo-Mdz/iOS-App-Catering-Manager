@@ -32,7 +32,6 @@ struct ShoppingListView: View {
                     }
                 }
             }
-
             Button(action: addToToDoList) {
                 Text("Add to ToDo List")
             }

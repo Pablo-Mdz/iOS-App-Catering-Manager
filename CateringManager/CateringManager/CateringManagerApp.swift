@@ -3,7 +3,7 @@
 //  CateringManager
 //
 //  Created by Pablo Cigoy on 01/07/2024.
-//
+//  in my portfolio
 
 import SwiftUI
 import FirebaseCore
