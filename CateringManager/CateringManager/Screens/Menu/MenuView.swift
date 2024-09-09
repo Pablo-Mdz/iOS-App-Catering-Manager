@@ -10,13 +10,13 @@ import SwiftUI
 struct MenuView: View {
     @StateObject private var viewModel = MenuViewModel()
     @EnvironmentObject var loginViewModel: UserViewModel
-    // Edit
+    // Edit section
     @State private var showNewMenuItem = false
     @State private var showingAddMenuSheet = false
     @State private var showEditMenuItem = false
     @State private var newMenuTitle = ""
     @State private var editingMenuId: String?
-    // Delete
+    // Delete section
     @State private var selectedMenu: Menu?
     @State private var showDeleteConfirmation = false
 
