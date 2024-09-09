@@ -15,6 +15,7 @@ struct ContentView: View {
         todoListViewModel.todoItems.filter { !$0.isCompleted }.count
     }
     var body: some View {
+        
         TabView {
             EventsView()
                 .tabItem {
