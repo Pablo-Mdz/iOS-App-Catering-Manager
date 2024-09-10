@@ -46,7 +46,6 @@ struct CateringManagerApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         UNUserNotificationCenter.current().delegate = self
-//        UNUserNotificationCenter.current().setBadgeCount(0)
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .badge, .sound],
             completionHandler: { _, _ in }
