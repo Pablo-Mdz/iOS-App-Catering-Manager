@@ -17,7 +17,6 @@ struct AddMenuView: View {
     @State private var showingAddDishSheet = false
     @State private var dishType: DishType = .entry
     @State private var showEmptyFieldAlert = false
-
     @State private var isMenuNameEmpty = false
     @State private var isMenuDescriptionEmpty = false
     @State private var isCostPerPersonInvalid = false
@@ -69,6 +68,7 @@ struct AddMenuView: View {
             }
         }
     }
+    
     private var menuDetailsSection: some View {
         Section(header: Text("Menu Details")) {
             TextField("Menu Name", text: $viewModel.menuName)

@@ -85,9 +85,6 @@ struct ProfilView: View {
                     NavigationLink(destination: AboutMeView()) {
                         Text("About Me")
                     }
-//                    NavigationLink(destination: SettingsView()) {
-//                        Text("Settings")
-//                    }
                 }
                 .listStyle(PlainListStyle())
             }
