@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuDetailView: View {
+    
     @ObservedObject var menuViewModel: MenuViewModel
     @State private var showingShoppingList = false
     @State private var showingEditMenu = false
@@ -58,7 +59,6 @@ struct MenuDetailView: View {
                                 set: { numberOfGuests = String($0) }
                             ), menuViewModel: MenuViewModel())
                             .padding()
-//                            .background(CostumColors.primaryColor.opacity(0.2))
                             .cornerRadius(5)
                         }
                     }

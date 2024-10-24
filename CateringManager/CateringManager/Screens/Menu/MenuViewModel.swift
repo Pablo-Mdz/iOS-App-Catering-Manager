@@ -13,6 +13,7 @@ import SwiftUI
 
 @MainActor
 class MenuViewModel: ObservableObject {
+    
     private let firebaseFirestore = Firestore.firestore() // swiftlint:disable:this superfluous_disable_command
     private let repository = MenuRepository()
     @Published var menus: [Menu] = []
@@ -47,6 +48,7 @@ class MenuViewModel: ObservableObject {
             }
         }
     }
+    
     func fetchMenuId(menuId id: String) {
         Task {
             do {
@@ -58,6 +60,7 @@ class MenuViewModel: ObservableObject {
             }
         }
     }
+    
     func updateMenuTitle(withId id: String, name: String) {
         guard let index = menus.firstIndex(where: { $0.id == id }) else {
             return
@@ -74,6 +77,7 @@ class MenuViewModel: ObservableObject {
         repository.deleteMenu(menuId: id)
         fetchMenus()
     }
+    
     func addDish(_ dish: Dish, toMenu menuId: String) {
         guard let index = menus.firstIndex(where: { $0.id == menuId }) else {
             return
@@ -86,6 +90,7 @@ class MenuViewModel: ObservableObject {
             print("Error adding dish: \(error)")
         }
     }
+    
     func updateDish(_ dish: Dish, inMenu menuId: String) {
         guard let menuIndex = menus.firstIndex(where: { $0.id == menuId }),
               let dishIndex = menus[menuIndex].dishes.firstIndex(where: { $0.id == dish.id }) else {
@@ -99,6 +104,7 @@ class MenuViewModel: ObservableObject {
             print("Error updating dish: \(error)")
         }
     }
+    
     func updateMenu(_ menu: Menu) {
         do {
             try repository.updateMenu(menu)
@@ -107,6 +113,7 @@ class MenuViewModel: ObservableObject {
             print("Error updating menu: \(error)")
         }
     }
+    
     func deleteDish(_ dish: Dish, fromMenu menuId: String) {
         guard let menuIndex = menus.firstIndex(where: { $0.id == menuId }) else {
             return
@@ -119,6 +126,7 @@ class MenuViewModel: ObservableObject {
             print("Error deleting dish: \(error)")
         }
     }
+    
     // Ingredient-related methods
     func addIngredient(_ ingredient: Ingredient, toDish dishId: UUID, inMenu menuId: String) {
         guard let menuIndex = menus.firstIndex(where: { $0.id == menuId }),
@@ -133,6 +141,7 @@ class MenuViewModel: ObservableObject {
             print("Error adding ingredient: \(error)")
         }
     }
+    
     func deleteIngredient(_ ingredient: Ingredient, fromDish dishId: UUID, inMenu menuId: String) {
         guard let menuIndex = menus.firstIndex(where: { $0.id == menuId }),
               let dishIndex = menus[menuIndex].dishes.firstIndex(where: { $0.id == dishId }) else {
@@ -146,6 +155,7 @@ class MenuViewModel: ObservableObject {
             print("Error deleting ingredient: \(error)")
         }
     }
+    
     func updateIngredient(_ updatedIngredient: Ingredient, inDish dishId: UUID, inMenu menuId: String) {
         guard let menuIndex = menus.firstIndex(where: { $0.id == menuId }),
               let dishIndex = menus[menuIndex].dishes.firstIndex(where: { $0.id == dishId }),
@@ -160,6 +170,7 @@ class MenuViewModel: ObservableObject {
             print("Error updating ingredient: \(error)")
         }
     }
+    
     // other functions // EditDishView // Picker Helpers
     var pricePicker: some View {
         Picker("Price", selection: Binding(
